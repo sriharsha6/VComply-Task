@@ -1,0 +1,52 @@
+<form>
+  <div fxLayout="row wrap" fxLayoutAlign="space-around center">
+    <div fxFlex="75">
+      <mat-form-field fxFlex="100">
+        <mat-label>Starts From</mat-label>
+        <input
+          matInput
+          [matDatepicker]="startDate"
+          [min]="minDate"
+          [max]="item.endDate"
+          [(ngModel)]="item.startDate"
+          placeholder="Starts From"
+          [ngModelOptions]="{ standalone: true }"
+          readonly
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="startDate"
+          matTooltip="Start Date"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #startDate></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="start start">
+      <div fxFlex="100">
+        <mat-card>
+          <div fxFlex="50">
+            <p>You have selected a <strong>One Time</strong> frequency</p>
+          </div>
+          <div fxFlex="50" fxLayoutAlign="end end">
+            <button mat-raised-button color="primary"></button>
+            <button mat-raised-button color="primary" (click)="finish()">
+              Finish
+            </button>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div
+    fxLayout="row wrap"
+    fxLayoutAlign="space-around center"
+    *ngIf="final.date"
+  >
+    <div fxFlex="100">
+      <p>
+        {{ final.date }}
+      </p>
+    </div>
+  </div>
+</form>

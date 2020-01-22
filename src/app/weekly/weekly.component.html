@@ -1,0 +1,72 @@
+<form>
+  <div fxLayout="row wrap" fxLayoutAlign="space-around center">
+    <div fxFlex="33.33">
+      <mat-form-field fxFlex="100">
+        <mat-label>Starts From</mat-label>
+        <input
+          matInput
+          [matDatepicker]="startDate"
+          [min]="minDate"
+          [max]="item.endDate"
+          [(ngModel)]="item.startDate"
+          placeholder="Starts From"
+          [ngModelOptions]="{ standalone: true }"
+          readonly
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="startDate"
+          matTooltip="Start Date"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #startDate></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div fxFlex="33.33">
+      <mat-form-field fxFlex="100">
+        <mat-label>End By</mat-label>
+        <input
+          matInput
+          [matDatepicker]="endDate"
+          [min]="item.startDate"
+          placeholder="End By"
+          [(ngModel)]="item.endDate"
+          [ngModelOptions]="{ standalone: true }"
+          readonly
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="endDate"
+          matTooltip="End By"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #endDate></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="start start">
+      <div fxFlex="100">
+        <mat-card>
+          <div fxFlex="50">
+            <p>You have selected a <strong>Weekly</strong> frequency</p>
+          </div>
+          <div fxFlex="50" fxLayoutAlign="end end">
+            <button mat-raised-button color="primary"></button>
+            <button mat-raised-button color="primary" (click)="finish()">
+              Finish
+            </button>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div
+    fxLayout="row wrap"
+    fxLayoutAlign="space-around center"
+    *ngIf="results.length > 0"
+  >
+    <div fxFlex="100">
+      <p *ngFor="let item of results">
+        {{ item.date }}
+      </p>
+    </div>
+  </div>
+</form>

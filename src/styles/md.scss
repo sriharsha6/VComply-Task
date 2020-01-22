@@ -1,0 +1,14 @@
+@import "~@angular/material/theming";
+@include mat-core();
+$mat-primary: mat-palette($mat-blue, 500, 100, 900);
+$mat-accent: mat-palette($mat-blue, 600, 100, 900);
+$mat-warn: mat-palette($mat-red, 500, 100, 900);
+$mat-theme: mat-light-theme($mat-primary, $mat-accent, $mat-warn);
+@include angular-material-theme($mat-theme);
+$alt-primary: mat-palette($mat-blue-gray, 300, 100, 300);
+$alt-accent: mat-palette($mat-blue, 500, 100, 900);
+$alt-theme: mat-light-theme($alt-primary, $alt-accent);
+
+.mat-tab-body {
+  padding: 50px;
+}

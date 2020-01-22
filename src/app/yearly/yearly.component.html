@@ -1,0 +1,42 @@
+<form>
+  <div fxLayout="row wrap" fxLayoutAlign="space-around center">
+    <div fxFlex="100">
+      <mat-form-field fxFlex="100">
+        <mat-label>Starts From</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Starts From" />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker"
+          matTooltip="Starts From"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="space-around center">
+    <div fxFlex="50">
+      <mat-form-field fxFlex="50">
+        <mat-label>End By</mat-label>
+        <input matInput [matDatepicker]="picker1" placeholder="End By" />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker1"
+          matTooltip="End By"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="space-around center">
+    <div fxFlex="100">
+      <mat-card>
+        <div fxFlex="50">
+          <p>You have selected a <strong>Yearly</strong> frequency</p>
+        </div>
+        <div fxFlex="50" fxLayoutAlign="end end">
+          <button mat-raised-button color="primary">Finish</button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</form>
